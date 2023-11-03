@@ -1,5 +1,4 @@
-﻿
-using Academy.Core.Enums;
+﻿using Academy.Core.Enums;
 using Academy.Service.Services.Interfaces;
 
 namespace Academy.Service.Services.Implementations
@@ -26,10 +25,10 @@ namespace Academy.Service.Services.Implementations
                         await RemoveStudent();
                         break;
                     case "4":
-                        await GetAllStudents();
+                        await Get();
                         break;
                     case "5":
-                        await Get();
+                        await GetAllStudents();
                         break;
                     default:
                         break;
@@ -61,7 +60,7 @@ namespace Academy.Service.Services.Implementations
         Console.WriteLine("Add StudentCategory");
         int.TryParse(Console.ReadLine(), out EnumIndex);
         IsExist = Enum.IsDefined(typeof(StudentEducation), (StudentEducation)EnumIndex);
-    } while (IsExist);
+    } while (!IsExist);
     string result = await studentService.CreateAsync(Fullname, Average, Group, (StudentEducation)EnumIndex);
     Console.WriteLine(result);
 }
@@ -90,8 +89,8 @@ namespace Academy.Service.Services.Implementations
                 Console.WriteLine("Add StudentCategory");
                 int.TryParse(Console.ReadLine(), out EnumIndex);
                 IsExist = Enum.IsDefined(typeof(StudentEducation), (StudentEducation)EnumIndex);
-            } while (IsExist);
-            string result = await studentService.UpdateAsync1(Id, Fullname, Average, Group, (StudentEducation)EnumIndex);
+            } while (!IsExist);
+            string result = await studentService.UpdateAsync(Id, Fullname, Average, Group, (StudentEducation)EnumIndex);
             Console.WriteLine(result);
         }
         async Task RemoveStudent()
@@ -114,12 +113,12 @@ namespace Academy.Service.Services.Implementations
         }
         async Task Menu()
         {
-
-            Console.WriteLine("1.Create");
-            Console.WriteLine("2.Update");
-            Console.WriteLine("3.Remove");
-            Console.WriteLine("4.Get");
-            Console.WriteLine("5.GetAll");
+            Console.ResetColor();
+            Console.WriteLine("1.Create Student");
+            Console.WriteLine("2.Update Student");
+            Console.WriteLine("3.Remove Student");
+            Console.WriteLine("4.Get Student ");
+            Console.WriteLine("5.GetAll Students ");
             Console.WriteLine("0.Close");
         }
 

@@ -1,5 +1,4 @@
-﻿
-namespace Academy.Core.Models.BaseModels
+﻿namespace Academy.Core.Models.BaseModels
 {
     public abstract class BaseModel
     {

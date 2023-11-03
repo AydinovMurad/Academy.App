@@ -1,6 +1,4 @@
-﻿
-
-namespace Academy.Core.Enums
+﻿namespace Academy.Core.Enums
 {
     public enum StudentEducation
     {

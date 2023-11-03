@@ -13,6 +13,6 @@ namespace Academy.Service.Services.Interfaces
         public Task<string> RemoveAsync(string id);
         public Task<string> GetAsync(string id);
         public Task  GetAllAsync();
-        Task<string> UpdateAsync1(string? id, string? fullname, double average, string? group, StudentEducation enumIndex);
+        
     }
 }
