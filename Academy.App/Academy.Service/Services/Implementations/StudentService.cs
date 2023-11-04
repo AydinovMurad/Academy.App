@@ -41,12 +41,13 @@ namespace Academy.Service.Services.Implementations
 
         public async Task<string> GetAsync(string id)
         {
-            Student student =  await _studentRepository.GetAsync(x=>x.Id==id);
             Console.ForegroundColor = ConsoleColor.Red;
+            Student student =  await _studentRepository.GetAsync(x => x.Id == id);
+            if (student == null)
                 return "Student not found";
-
-            Console.WriteLine($"Id:{student.Id} Fullname:{student.FullName} Average:{student.Average} Group:{student.Group} Education{student.StudentEducation} CreatedAt:{student.CreatedAt} UpdateAt:{student.UpdateAt}");
             Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"Id:{student.Id} Fullname:{student.FullName} Average:{student.Average} Group:{student.Group} Education{student.StudentEducation} CreatedAt:{student.CreatedAt} UpdateAt:{student.UpdateAt}");
+ 
             return "Success";
 
         }

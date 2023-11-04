@@ -26,6 +26,7 @@ namespace Academy.Data.Repositories
         public async Task<T> GetAsync(Func<T, bool> func)
         {
             return values.FirstOrDefault(func);
+
         }
 
         public async Task RemoveAsync(T entity)
